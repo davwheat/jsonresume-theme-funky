@@ -1,0 +1,157 @@
+.page {
+  .transition(~"transform", 1s, ease-out);
+}
+
+#splash {
+  height: 100vh;
+  width: 100vw;
+  transform: scale(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  #name {
+    width: 100%;
+    min-height: 200px;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      overflow: visible;
+    }
+  }
+
+  .nav-link {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.75rem;
+    letter-spacing: 4px;
+    line-height: 1;
+    position: fixed;
+    cursor: pointer;
+    color: @accent-yellow;
+    display: block;
+    .transition(~"transform", 250ms, ease-out);
+
+    &:not(:nth-of-type(3))::after,
+    &:nth-of-type(3)::before {
+      content: "";
+      display: block;
+      border-style: solid;
+      border-color: fade(@accent-yellow, 25%);
+      border-width: 0 3px 3px 0;
+      margin: auto;
+      height: 16px;
+      width: 16px;
+      .transition(~"border-color", 100ms, ease-out);
+    }
+
+    &:hover::after {
+      border-color: fade(@accent-yellow, 75%);
+    }
+
+    &:nth-of-type(even) {
+      writing-mode: rl-tb;
+      writing-mode: vertical-rl;
+    }
+
+    @spacing: 16px;
+    @arrow-hover-offset: 16px;
+    @offset-hover: 8px;
+
+    &.out {
+      transform: scale(0) !important;
+
+      &:nth-of-type(4) {
+        transform: scale(0) rotate(180deg) !important;
+      }
+    }
+
+    &:nth-of-type(1) {
+      padding-top: @spacing + @offset-hover;
+      top: -@offset-hover;
+
+      transform: scale(1);
+
+      &::after {
+        transform: rotate(45deg);
+        .transition(~"transform", 250ms, ease-out);
+      }
+
+      &:hover::after {
+        transform: rotate(45deg)
+          translate(@arrow-hover-offset, @arrow-hover-offset);
+      }
+
+      &:hover {
+        transform: scale(1) translateY(@offset-hover);
+      }
+    }
+
+    &:nth-of-type(2) {
+      padding-right: @spacing + @offset-hover;
+      right: -@offset-hover;
+
+      transform: scale(1);
+
+      &::after {
+        transform: rotate(45deg + 90deg);
+        .transition(~"transform", 250ms, ease-out);
+      }
+
+      &:hover::after {
+        transform: rotate(45deg + 90deg)
+          translate(@arrow-hover-offset, @arrow-hover-offset);
+      }
+
+      &:hover {
+        transform: scale(1) translateX(-@offset-hover);
+      }
+    }
+
+    &:nth-of-type(3) {
+      padding-bottom: @spacing + @offset-hover;
+      bottom: -@offset-hover;
+
+      transform: scale(1);
+
+      &::before {
+        transform: rotate(-45deg - 90deg);
+        .transition(~"transform", 250ms, ease-out);
+      }
+
+      &:hover::before {
+        transform: rotate(-45deg - 90deg)
+          translate(@arrow-hover-offset, @arrow-hover-offset);
+      }
+
+      &:hover {
+        transform: scale(1) translateY(-@offset-hover);
+      }
+    }
+
+    &:nth-of-type(4) {
+      transform: scale(1) rotate(180deg);
+
+      padding-right: @spacing + @offset-hover;
+      left: -@offset-hover;
+
+      &::after {
+        transform: rotate(45deg + 90deg);
+        .transition(~"transform", 250ms, ease-out);
+      }
+
+      &:hover::after {
+        transform: rotate(45deg + 90deg)
+          translate(@arrow-hover-offset, @arrow-hover-offset);
+      }
+
+      &:hover {
+        transform: scale(1) translateX(@offset-hover) rotate(180deg);
+      }
+    }
+  }
+}

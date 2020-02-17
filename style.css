@@ -32,7 +32,24 @@ body .page {
   transition-duration: 1s;
   transition-timing-function: ease-out;
 }
-body #splash {
+.page {
+  -webkit-transition-property: transform;
+  -webkit-transition-duration: 1s;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-property: transform;
+  -moz-transition-duration: 1s;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-property: transform;
+  -ms-transition-duration: 1s;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-property: transform;
+  -o-transition-duration: 1s;
+  -o-transition-timing-function: ease-out;
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+}
+#splash {
   height: 100vh;
   width: 100vw;
   transform: scale(1);
@@ -41,7 +58,7 @@ body #splash {
   align-items: center;
   justify-content: center;
 }
-body #splash #name {
+#splash #name {
   width: 100%;
   min-height: 200px;
   height: 25%;
@@ -49,10 +66,10 @@ body #splash #name {
   align-items: center;
   justify-content: center;
 }
-body #splash #name svg {
+#splash #name svg {
   overflow: visible;
 }
-body #splash .nav-link {
+#splash .nav-link {
   text-transform: uppercase;
   text-align: center;
   font-size: 1.75rem;
@@ -78,8 +95,8 @@ body #splash .nav-link {
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:not(:nth-of-type(3))::after,
-body #splash .nav-link:nth-of-type(3)::before {
+#splash .nav-link:not(:nth-of-type(3))::after,
+#splash .nav-link:nth-of-type(3)::before {
   content: "";
   display: block;
   border-style: solid;
@@ -104,25 +121,25 @@ body #splash .nav-link:nth-of-type(3)::before {
   transition-duration: 100ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:hover::after {
+#splash .nav-link:hover::after {
   border-color: rgba(252, 195, 30, 0.75);
 }
-body #splash .nav-link:nth-of-type(even) {
+#splash .nav-link:nth-of-type(even) {
   writing-mode: rl-tb;
   writing-mode: vertical-rl;
 }
-body #splash .nav-link.out {
+#splash .nav-link.out {
   transform: scale(0) !important;
 }
-body #splash .nav-link.out:nth-of-type(4) {
+#splash .nav-link.out:nth-of-type(4) {
   transform: scale(0) rotate(180deg) !important;
 }
-body #splash .nav-link:nth-of-type(1) {
+#splash .nav-link:nth-of-type(1) {
   padding-top: 24px;
   top: -8px;
   transform: scale(1);
 }
-body #splash .nav-link:nth-of-type(1)::after {
+#splash .nav-link:nth-of-type(1)::after {
   transform: rotate(45deg);
   -webkit-transition-property: transform;
   -webkit-transition-duration: 250ms;
@@ -140,18 +157,18 @@ body #splash .nav-link:nth-of-type(1)::after {
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:nth-of-type(1):hover::after {
+#splash .nav-link:nth-of-type(1):hover::after {
   transform: rotate(45deg) translate(16px, 16px);
 }
-body #splash .nav-link:nth-of-type(1):hover {
+#splash .nav-link:nth-of-type(1):hover {
   transform: scale(1) translateY(8px);
 }
-body #splash .nav-link:nth-of-type(2) {
+#splash .nav-link:nth-of-type(2) {
   padding-right: 24px;
   right: -8px;
   transform: scale(1);
 }
-body #splash .nav-link:nth-of-type(2)::after {
+#splash .nav-link:nth-of-type(2)::after {
   transform: rotate(135deg);
   -webkit-transition-property: transform;
   -webkit-transition-duration: 250ms;
@@ -169,18 +186,18 @@ body #splash .nav-link:nth-of-type(2)::after {
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:nth-of-type(2):hover::after {
+#splash .nav-link:nth-of-type(2):hover::after {
   transform: rotate(135deg) translate(16px, 16px);
 }
-body #splash .nav-link:nth-of-type(2):hover {
+#splash .nav-link:nth-of-type(2):hover {
   transform: scale(1) translateX(-8px);
 }
-body #splash .nav-link:nth-of-type(3) {
+#splash .nav-link:nth-of-type(3) {
   padding-bottom: 24px;
   bottom: -8px;
   transform: scale(1);
 }
-body #splash .nav-link:nth-of-type(3)::before {
+#splash .nav-link:nth-of-type(3)::before {
   transform: rotate(-135deg);
   -webkit-transition-property: transform;
   -webkit-transition-duration: 250ms;
@@ -198,18 +215,18 @@ body #splash .nav-link:nth-of-type(3)::before {
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:nth-of-type(3):hover::before {
+#splash .nav-link:nth-of-type(3):hover::before {
   transform: rotate(-135deg) translate(16px, 16px);
 }
-body #splash .nav-link:nth-of-type(3):hover {
+#splash .nav-link:nth-of-type(3):hover {
   transform: scale(1) translateY(-8px);
 }
-body #splash .nav-link:nth-of-type(4) {
+#splash .nav-link:nth-of-type(4) {
   transform: scale(1) rotate(180deg);
   padding-right: 24px;
   left: -8px;
 }
-body #splash .nav-link:nth-of-type(4)::after {
+#splash .nav-link:nth-of-type(4)::after {
   transform: rotate(135deg);
   -webkit-transition-property: transform;
   -webkit-transition-duration: 250ms;
@@ -227,9 +244,9 @@ body #splash .nav-link:nth-of-type(4)::after {
   transition-duration: 250ms;
   transition-timing-function: ease-out;
 }
-body #splash .nav-link:nth-of-type(4):hover::after {
+#splash .nav-link:nth-of-type(4):hover::after {
   transform: rotate(135deg) translate(16px, 16px);
 }
-body #splash .nav-link:nth-of-type(4):hover {
+#splash .nav-link:nth-of-type(4):hover {
   transform: scale(1) translateX(8px) rotate(180deg);
 }
