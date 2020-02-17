@@ -7,11 +7,14 @@
 <a class="nav-link out">Contact Me</a>
 
 <script>
+  let FONT_SIZE =
+    window.matchMedia("(max-width:530px)").matches ? window.matchMedia("(max-width:410px)").matches ? window.matchMedia("(max-width:345px)").matches ? 18 : 24 : 32 : 46;
+
   new Vara("#name", "https://raw.githubusercontent.com/akzhy/Vara/af84697e824bb7b73ea3893fe675fd3db0b4e001/fonts/Shadows-Into-Light/shadows-into-light.json", [{
     text: "{{name}}",
     id: "nameSplash",
   }], {
-    fontSize: 46,
+    fontSize: FONT_SIZE,
     strokeWidth: 4,
     textAlign: "center",
     letterSpacing: 5,
@@ -27,13 +30,17 @@
 
   window.addEventListener("resize", () => {
     clearTimeout(window.resizedFinished);
-    window.resizedFinished = setTimeout(function () {
-      document.querySelectorAll("#name svg").forEach(el => { el.remove() })
+    FONT_SIZE =
+      window.matchMedia("(max-width:530px)").matches ? window.matchMedia("(max-width:410px)").matches ? window.matchMedia("(max-width:345px)").matches ? 18 : 24 : 32 : 46;
+
+    window.resizedFinished = window.setTimeout(() => {
+      document.querySelectorAll("#name svg").forEach(el => { el.remove() });
+
       new Vara("#name", "https://raw.githubusercontent.com/akzhy/Vara/af84697e824bb7b73ea3893fe675fd3db0b4e001/fonts/Shadows-Into-Light/shadows-into-light.json", [{
         text: "{{name}}",
         id: "nameSplash",
       }], {
-        fontSize: 46,
+        fontSize: FONT_SIZE,
         strokeWidth: 4,
         textAlign: "center",
         letterSpacing: 5,

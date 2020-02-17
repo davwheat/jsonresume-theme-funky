@@ -68,6 +68,7 @@ body .page {
 }
 #splash #name svg {
   overflow: visible;
+  width: calc(100vw - 8rem);
 }
 #splash .nav-link {
   text-transform: uppercase;
