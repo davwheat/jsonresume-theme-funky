@@ -1,0 +1,51 @@
+{{#resume.basics}}
+<div id="name"></div>
+
+<a class="nav-link out">About Me</a>
+<a class="nav-link out">My Work</a>
+<a class="nav-link out">Experience</a>
+<a class="nav-link out">Contact Me</a>
+
+<script>
+  new Vara("#name", "https://raw.githubusercontent.com/akzhy/Vara/af84697e824bb7b73ea3893fe675fd3db0b4e001/fonts/Shadows-Into-Light/shadows-into-light.json", [{
+    text: "{{name}}",
+    id: "nameSplash",
+  }], {
+    fontSize: 46,
+    strokeWidth: 4,
+    textAlign: "center",
+    letterSpacing: 5,
+    duration: 3000,
+    delay: 1000,
+    color: "#eb5f8e"
+  }).animationEnd((id, obj) => {
+    if (id === "nameSplash") {
+      console.info("Name animation complete, showing nav links")
+      document.querySelectorAll(".nav-link.out").forEach(el => { el.classList.remove("out") })
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(function () {
+      document.querySelectorAll("#name svg").forEach(el => { el.remove() })
+      new Vara("#name", "https://raw.githubusercontent.com/akzhy/Vara/af84697e824bb7b73ea3893fe675fd3db0b4e001/fonts/Shadows-Into-Light/shadows-into-light.json", [{
+        text: "{{name}}",
+        id: "nameSplash",
+      }], {
+        fontSize: 46,
+        strokeWidth: 4,
+        textAlign: "center",
+        letterSpacing: 5,
+        duration: 0,
+        delay: 0,
+        color: "#eb5f8e"
+      }).animationEnd((id, obj) => {
+        if (id === "nameSplash") {
+          document.querySelectorAll(".nav-link.out").forEach(el => { el.classList.remove("out") })
+        }
+      });
+    }, 250);
+  }, { passive: true })
+</script>
+{{/resume.basics}}

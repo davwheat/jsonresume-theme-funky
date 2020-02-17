@@ -1,22 +1,27 @@
 <!doctype html>
 <html>
-	<head>
-	
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700,700i&display=swap" rel="stylesheet">
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
+
 	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
 
 	<style>
-	{{{css}}}
+		{{{css}}}
 	</style>
-	
-	</head>
-	<body>
-	
-	<div id="resume">
-		{{> basics }}
-		{{> work }}
+
+	<script src="https://cdn.jsdelivr.net/gh/akzhy/vara@master/src/vara.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<main id="splash" class="page">
+		{{> namesplash}}
+	</main>
+	{{!-- {{> basics }}
+		{{!-- {{> work }}
 		{{> volunteer }}
 		{{> education }}
 		{{> awards }}
@@ -24,6 +29,7 @@
 		{{> skills }}
 		{{> languages }}
 		{{> interests }}
-		{{> references }}
-	</body>
+		{{> references }} --}}
+</body>
+
 </html>
