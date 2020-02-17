@@ -1,0 +1,138 @@
+{{#resume.basics}}
+<section id="basic-info">
+  <h1>{{name}}</h1>
+  <h2>{{label}}</h2>
+</section>
+<section id="details">
+  {{#if summary}}
+  <div class="summary">
+    <p>{{summary}}</p>
+  </div>
+  {{/if}}
+  {{#location}}
+  <h3>Location</h3>
+  <section id="location">
+    {{#if address}}
+    <div class="address">
+      <strong>Address</strong>
+      {{address}}
+    </div>
+    {{/if}}
+    {{#if postalCode}}
+    <div class="postalCode">
+      <strong>Postal code</strong>
+      {{postalCode}}
+    </div>
+    {{/if}}
+    {{#if city}}
+    <div class="city">
+      <strong>City</strong>
+      {{city}}
+    </div>
+    {{/if}}
+    {{#if countryCode}}
+    <div class="countryCode">
+      <strong>Country code</strong>
+      {{countryCode}}
+    </div>
+    {{/if}}
+    {{#if region}}
+    <div class="region">
+      <strong>Region</strong>
+      {{region}}
+    </div>
+    {{/if}}
+  </section>
+  {{/location}}
+  {{#if profiles.length}}
+  <h3>Social Media</h3>
+  <section id="profiles">
+    {{#each profiles}}
+    <div class="item">
+      {{#if network}}
+      <strong class="network">
+        {{network}}
+      </strong>
+      {{/if}}
+      {{#if username}}
+      <div class="username">
+        {{username}}
+      </div>
+      {{/if}}
+      {{#if url}}
+      <div class="url">
+        <a href="{{url}}">Link</a>
+      </div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+  {{#if resume.interests.length}}
+  <section id="interests">
+    <h2>Interests</h2>
+    {{#each resume.interests}}
+    <div class="item">
+      {{#if name}}
+      <div class="name">
+        {{name}}
+      </div>
+      {{/if}}
+      {{#if keywords.length}}
+      <ul class="keywords">
+        {{#each keywords}}
+        <li>{{.}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+  {{#if resume.skills.length}}
+  <section id="skills">
+    <h2>Skills</h2>
+    {{#each resume.skills}}
+    <div class="item">
+      {{#if name}}
+      <div class="name">
+        {{name}}
+      </div>
+      {{/if}}
+      {{#if level}}
+      <div class="level">
+        <em>{{level}}</em>
+      </div>
+      {{/if}}
+      {{#if keywords.length}}
+      <ul class="keywords">
+        {{#each keywords}}
+        <li>{{.}}</li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+  {{#if resume.languages.length}}
+  <section id="languages">
+    <h2>Languages</h2>
+    {{#each resume.languages}}
+    <div class="item">
+      {{#if language}}
+      <div class="language">
+        {{language}}
+      </div>
+      {{/if}}
+      {{#if fluency}}
+      <div class="fluency">
+        <em>{{fluency}}</em>
+      </div>
+      {{/if}}
+    </div>
+    {{/each}}
+  </section>
+  {{/if}}
+</section>
+{{/resume.basics}}

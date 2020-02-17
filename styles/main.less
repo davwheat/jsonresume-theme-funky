@@ -46,7 +46,106 @@ body {
   overflow: hidden;
 
   .page {
-    .transition(~"transform", 1s, ease-out);
+    .transition(~"transform", 750ms, ease-out);
+    background: lighten(@background, 5%);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+  }
+
+  section.page {
+    border-image: linear-gradient(
+      180deg,
+      rgba(104, 213, 255, 1) 0%,
+      rgba(45, 179, 222, 1) 15%,
+      #467ee3 100%
+    );
+
+    // About Me
+    &:nth-child(2) {
+      transform: translate(0, -100%);
+    }
+
+    // My Work
+    &:nth-child(3) {
+      transform: translate(100%, 0);
+    }
+
+    // My Work
+    &:nth-child(4) {
+      transform: translate(0, -100%);
+    }
+
+    // Contact Me
+    &:nth-child(5) {
+      transform: translate(-100%, 0);
+    }
+
+    &.in {
+      transform: translate(0, 0);
+
+      &::after {
+        content: "";
+        display: block;
+      }
+
+      // About Me
+      &:nth-child(2)::after {
+        width: 100vw;
+        height: 5vh;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(48, 48, 48, 0.6) 40%,
+          rgba(62, 62, 62, 1) 100%
+        );
+      }
+
+      // My Work
+      &:nth-child(3)::after {
+        width: 100vw;
+        height: 5vh;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(48, 48, 48, 0.6) 40%,
+          rgba(62, 62, 62, 1) 100%
+        );
+      }
+
+      // My Work
+      &:nth-child(4)::after {
+        width: 100vw;
+        height: 5vh;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(48, 48, 48, 0.6) 40%,
+          rgba(62, 62, 62, 1) 100%
+        );
+      }
+
+      // Contact Me
+      &:nth-child(5)::after {
+        width: 100vw;
+        height: 5vh;
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          -90deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(48, 48, 48, 0.6) 40%,
+          rgba(62, 62, 62, 1) 100%
+        );
+      }
+    }
   }
 }
 

@@ -17,20 +17,75 @@ body {
 }
 body .page {
   -webkit-transition-property: transform;
-  -webkit-transition-duration: 1s;
+  -webkit-transition-duration: 750ms;
   -webkit-transition-timing-function: ease-out;
   -moz-transition-property: transform;
-  -moz-transition-duration: 1s;
+  -moz-transition-duration: 750ms;
   -moz-transition-timing-function: ease-out;
   -ms-transition-property: transform;
-  -ms-transition-duration: 1s;
+  -ms-transition-duration: 750ms;
   -ms-transition-timing-function: ease-out;
   -o-transition-property: transform;
-  -o-transition-duration: 1s;
+  -o-transition-duration: 750ms;
   -o-transition-timing-function: ease-out;
   transition-property: transform;
-  transition-duration: 1s;
+  transition-duration: 750ms;
   transition-timing-function: ease-out;
+  background: #353535;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+body section.page {
+  border-image: linear-gradient(180deg, #68d5ff 0%, #2db3de 15%, #467ee3 100%);
+}
+body section.page:nth-child(2) {
+  transform: translate(0, -100%);
+}
+body section.page:nth-child(3) {
+  transform: translate(100%, 0);
+}
+body section.page:nth-child(4) {
+  transform: translate(0, -100%);
+}
+body section.page:nth-child(5) {
+  transform: translate(-100%, 0);
+}
+body section.page.in {
+  transform: translate(0, 0);
+}
+body section.page.in::after {
+  content: "";
+  display: block;
+}
+body section.page.in:nth-child(2)::after {
+  width: 100vw;
+  height: 5vh;
+  background: #000000;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(48, 48, 48, 0.6) 40%, #3e3e3e 100%);
+}
+body section.page.in:nth-child(3)::after {
+  width: 100vw;
+  height: 5vh;
+  background: #000000;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(48, 48, 48, 0.6) 40%, #3e3e3e 100%);
+}
+body section.page.in:nth-child(4)::after {
+  width: 100vw;
+  height: 5vh;
+  background: #000000;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(48, 48, 48, 0.6) 40%, #3e3e3e 100%);
+}
+body section.page.in:nth-child(5)::after {
+  width: 100vw;
+  height: 5vh;
+  background: #000000;
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0.2) 0%, rgba(48, 48, 48, 0.6) 40%, #3e3e3e 100%);
 }
 .page {
   -webkit-transition-property: transform;
