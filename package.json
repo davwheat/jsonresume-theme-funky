@@ -10,5 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^4.7.3"
+  },
+  "devDependencies": {
+    "less-watch-compiler": "^1.14.6"
+  },
+  "scripts": {
+    "run": "resume serve",
+    "watch": "less-watch-compiler styles ./ ../style.less"
   }
 }
