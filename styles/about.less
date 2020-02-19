@@ -1,0 +1,235 @@
+@import "constants.less";
+
+#about-me {
+  > div {
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px @light-accent solid;
+    margin: auto;
+    width: 100%;
+
+    > .inner {
+      margin: auto;
+      width: 100%;
+
+      @media only screen and (min-width: 960px) {
+        max-width: 900px;
+      }
+      @media only screen and (min-width: 768px) and (max-width: 959px) {
+        max-width: 700px;
+      }
+      @media only screen and (min-width: 620px) and (max-width: 767px) {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+  }
+
+  .flex-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    padding-bottom: 16px;
+    color: inherit;
+    background: linear-gradient(
+      180deg,
+      transparent 50%,
+      fade(@accent-pink, 30%) 40%,
+      fade(@accent-pink, 30%) 95%,
+      transparent 95%
+    );
+    display: table;
+    margin: auto;
+    background-clip: content-box;
+  }
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .intro {
+    text-align: center;
+    padding-bottom: 32px;
+    padding-top: 32px;
+    border-bottom: 1px @light-accent solid;
+
+    h2 {
+      font-size: 1.25rem;
+      padding-bottom: 0;
+      text-transform: uppercase;
+      color: @fade-text;
+      background: none;
+
+      &:last-of-type {
+        padding-top: 12px;
+      }
+    }
+    p {
+      font-size: 2.25rem;
+      display: inline;
+    }
+  }
+
+  .info {
+    .inner {
+      p {
+        color: @fade-text;
+      }
+    }
+  }
+
+  .achievements .achievement {
+    border: @light-accent 1px solid;
+    border-radius: 4px;
+    padding: 12px;
+    position: relative;
+    margin-left: calc(0.75rem + 4px);
+    min-width: 200px;
+    max-width: 350px;
+    margin-bottom: 24px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: calc(0.75rem + 4px + 24px);
+    }
+
+    &::before {
+      left: -0.75rem;
+      font-size: 0.75rem;
+      line-height: 1;
+      transform: rotate(180deg);
+      position: absolute;
+      content: attr(data-date);
+      display: block;
+      top: 0;
+      bottom: 0;
+      margin-left: -4px;
+      writing-mode: vertical-rl;
+      color: fade(@fade-text, 75%);
+    }
+
+    .title {
+      font-size: 1.5rem;
+      color: @accent-yellow;
+    }
+
+    .awarder {
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+
+    .summary {
+      font-size: 1rem;
+      color: @fade-text;
+    }
+  }
+
+  .social-media {
+    .item {
+      min-width: 150px;
+
+      h1.network {
+        font-size: 1.5rem;
+      }
+
+      .username {
+        font-size: 1rem;
+
+        a:any-link {
+          color: @accent-yellow;
+          text-decoration: none;
+          display: inline-block;
+
+          &::after {
+            .transition(~"transform", @medium-transition, ease-out);
+            content: "";
+            display: block;
+            border-bottom: 1px solid @accent-yellow;
+            left: 0;
+            right: 0;
+            transform: scale(0);
+          }
+
+          &:hover::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+
+  .interests {
+    .item {
+      border: @light-accent 1px solid;
+      border-radius: 4px;
+      padding: 12px;
+      position: relative;
+      min-width: 200px;
+      margin-bottom: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      &:not(:first-child) {
+        margin-left: 24px;
+      }
+
+      .name {
+        color: @accent-yellow;
+
+        &::before {
+          display: inline;
+        }
+      }
+
+      .keywords li {
+        font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+        color: @fade-text;
+        list-style-type: none;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .skills .item {
+    border: @light-accent 1px solid;
+    border-radius: 4px;
+    padding: 12px;
+    position: relative;
+    min-width: 200px;
+    margin-bottom: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    &:not(:first-child) {
+      margin-left: 24px;
+    }
+
+    .name {
+      color: @accent-yellow;
+
+      &::before {
+        display: inline;
+      }
+    }
+
+    .keywords {
+      flex-grow: 1;
+
+      li {
+        font-family: "Fira Code", Consolas, "Courier New", Courier, monospace;
+        color: @fade-text;
+        list-style-type: none;
+      }
+    }
+  }
+}

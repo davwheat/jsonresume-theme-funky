@@ -1,10 +1,11 @@
 {{#resume.basics}}
-<div id="name"></div>
+<div data-tilt data-tilt-mouse-event-element="#splash" id="name" aria-label="{{name}}"></div>
+<noscript>Without Javascript, this page does not function correctly. Please enable Javascript.</noscript>
 
-<a class="nav-link out">About Me</a>
-<a class="nav-link out">My Work</a>
-<a class="nav-link out">Experience</a>
-<a class="nav-link out">Contact Me</a>
+<a class="nav-link out" href="#" onclick="document.querySelector('#about-me').classList.add('in')">About Me</a>
+<a class="nav-link out" href="#" onclick="document.querySelector('#my-work').classList.add('in')">My Work</a>
+<a class="nav-link out" href="#" onclick="document.querySelector('#experience').classList.add('in')">Experience</a>
+<a class="nav-link out" href="#" onclick="document.querySelector('#contact-me').classList.add('in')">Contact Me</a>
 
 <script>
   let FONT_SIZE =

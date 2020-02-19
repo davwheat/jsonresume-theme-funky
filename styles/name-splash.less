@@ -1,6 +1,4 @@
-.page {
-  .transition(~"transform", 1s, ease-out);
-}
+@import "constants.less";
 
 #splash {
   height: 100vh;
@@ -12,9 +10,11 @@
   justify-content: center;
 
   #name {
-    width: 100%;
-    min-height: 200px;
-    height: 25%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,6 +26,7 @@
   }
 
   .nav-link {
+    text-decoration: none;
     text-transform: uppercase;
     text-align: center;
     font-size: 1.75rem;
@@ -35,7 +36,7 @@
     cursor: pointer;
     color: @accent-yellow;
     display: block;
-    .transition(~"transform", 250ms, ease-out);
+    .transition(~"transform", 300ms, ease-out);
 
     &:not(:nth-of-type(3))::after,
     &:nth-of-type(3)::before {
@@ -47,7 +48,6 @@
       margin: auto;
       height: 16px;
       width: 16px;
-      .transition(~"border-color", 100ms, ease-out);
     }
 
     &:hover::after {
@@ -79,15 +79,18 @@
 
       &::after {
         transform: rotate(45deg);
-        .transition(~"transform", 250ms, ease-out);
+        .transition(~"transform", 300ms, ease-out);
       }
 
-      &:hover::after {
+      &:hover::after,
+      &.clicked::after {
         transform: rotate(45deg)
           translate(@arrow-hover-offset, @arrow-hover-offset);
+        .transition(~"transform", @medium-transition, ease-out);
       }
 
       &:hover {
+        .transition(~"transform", @medium-transition, ease-out);
         transform: scale(1) translateY(@offset-hover);
       }
     }
@@ -103,7 +106,8 @@
         .transition(~"transform", 250ms, ease-out);
       }
 
-      &:hover::after {
+      &:hover::after,
+      &.clicked::after {
         transform: rotate(45deg + 90deg)
           translate(@arrow-hover-offset, @arrow-hover-offset);
       }
@@ -124,7 +128,8 @@
         .transition(~"transform", 250ms, ease-out);
       }
 
-      &:hover::before {
+      &:hover::before,
+      &.clicked::before {
         transform: rotate(-45deg - 90deg)
           translate(@arrow-hover-offset, @arrow-hover-offset);
       }
@@ -145,7 +150,8 @@
         .transition(~"transform", 250ms, ease-out);
       }
 
-      &:hover::after {
+      &:hover::after,
+      &.clicked::after {
         transform: rotate(45deg + 90deg)
           translate(@arrow-hover-offset, @arrow-hover-offset);
       }

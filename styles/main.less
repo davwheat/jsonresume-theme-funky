@@ -1,8 +1,4 @@
-@accent-yellow: #fcc31e;
-@accent-pink: #eb5f8e;
-
-@background: #282828;
-@text: #fff;
+@import "constants.less";
 
 .transition ( @property, @duration, @style: ease-in-out ) {
   -webkit-transition-property: @property;
@@ -26,6 +22,20 @@
   transition-timing-function: @style;
 }
 
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: lighten(@background, 20%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,7 +56,7 @@ body {
   overflow: hidden;
 
   .page {
-    .transition(~"transform", 750ms, ease-out);
+    .transition(~"transform", @long-transition, ease-out);
     background: lighten(@background, 5%);
     height: 100vh;
     width: 100vw;
@@ -56,97 +66,80 @@ body {
     bottom: 0;
     right: 0;
     overflow: hidden;
+
+    .back-container {
+      border-top: @light-accent;
+      position: static;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: @dark-accent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a.go-back {
+        display: block;
+        border-style: solid;
+        border-color: fade(@accent-yellow, 50%);
+        border-width: 0 3px 3px 0;
+        height: 16px;
+        width: 16px;
+        transform: translateY(5px) rotate(-90deg - 45deg);
+        .transition(~"transform, border-color", @short-transition, ease-out);
+
+        &:hover {
+          border-color: @accent-yellow;
+          transform: translateY(5px) scale(1.33) rotate(-90deg - 45deg);
+        }
+      }
+    }
   }
 
   section.page {
-    border-image: linear-gradient(
-      180deg,
-      rgba(104, 213, 255, 1) 0%,
-      rgba(45, 179, 222, 1) 15%,
-      #467ee3 100%
-    );
+    background-color: @dark-accent;
+    outline: lighten(@background, 5%) 1px solid;
+    overflow-y: auto;
 
     // About Me
-    &:nth-child(2) {
+    &:nth-of-type(1) {
       transform: translate(0, -100%);
     }
 
     // My Work
-    &:nth-child(3) {
+    &:nth-of-type(2) {
       transform: translate(100%, 0);
     }
 
     // My Work
-    &:nth-child(4) {
+    &:nth-of-type(3) {
       transform: translate(0, -100%);
     }
 
     // Contact Me
-    &:nth-child(5) {
+    &:nth-of-type(4) {
       transform: translate(-100%, 0);
     }
 
     &.in {
       transform: translate(0, 0);
-
-      &::after {
-        content: "";
-        display: block;
-      }
-
-      // About Me
-      &:nth-child(2)::after {
-        width: 100vw;
-        height: 5vh;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(48, 48, 48, 0.6) 40%,
-          rgba(62, 62, 62, 1) 100%
-        );
-      }
-
-      // My Work
-      &:nth-child(3)::after {
-        width: 100vw;
-        height: 5vh;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(48, 48, 48, 0.6) 40%,
-          rgba(62, 62, 62, 1) 100%
-        );
-      }
-
-      // My Work
-      &:nth-child(4)::after {
-        width: 100vw;
-        height: 5vh;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(48, 48, 48, 0.6) 40%,
-          rgba(62, 62, 62, 1) 100%
-        );
-      }
-
-      // Contact Me
-      &:nth-child(5)::after {
-        width: 100vw;
-        height: 5vh;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(
-          -90deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(48, 48, 48, 0.6) 40%,
-          rgba(62, 62, 62, 1) 100%
-        );
-      }
     }
   }
 }
 
+mark,
+.highlight {
+  color: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    fade(@accent-pink, 30%) 50%,
+    fade(@accent-pink, 30%) 95%,
+    transparent 95%
+  );
+}
+
 @import "name-splash.less";
+@import "about.less";
+@import "work.less";
